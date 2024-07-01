@@ -29,7 +29,8 @@ Variables that can be modified, by function:
 # Workflow
 
 ### Clean sections from EEG edf files.
-Selecting clean sections allows us to avoid obvious artefacts. Artefact correction is a "fine tuning" of this. Use CSV of edfs: format: FileLocation, start of clean section, end of clean section
+Selecting clean sections allows us to avoid obvious artefacts. Artefact correction is a "fine tuning" of this. Use CSV of edfs: format: FileLocation, start of clean section, end of clean section.
+
 This is loaded by HEP-Params, and the edf is loaded as a raw object, which is trimmed to the clean section. All clean sections from a given edf are concatenated. These are then exported as a new EDF with a suffix "K" (for klean).
 
 ### Artefact correction
