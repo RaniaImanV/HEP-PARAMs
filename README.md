@@ -1,7 +1,7 @@
 # HEP-PARAMs
 
 HEP-PARAMs is a repository for parametric exploration of HEP derivation.
-Please note that the path for each file needs to be determined before running the code.
+Please note that the path for each file needs to be replaced with the appropriate path before running the code.
 
 # Outline
 
