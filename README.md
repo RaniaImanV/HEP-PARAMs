@@ -13,10 +13,31 @@ HEP-Technique is a repository for parametric exploration of HEP derivation
 5. minimum RR interval in ms
 6. ICA vs ASR
 7. ASR threshold
-8. electrodes used 
+8. ICA with or without CFA removed 
+9. electrodes used 
 
 Default values (lists of different values can be entered into the functions as parameters in lists)
 Variables that can be modified, by function:
     1. BulkSortEEGs: ASRThresholds (default 20)
     2. BatchEpochGeneration: maxEpochAmps (default 100), MinRRs (default 0.88)
     3. BatchHEPComputation: baseStarts (default -0.5, baseEnds= (default -0.1), windowStarts (default 0.455), windowEnds (default 0.595)
+
+
+# Workflow
+
+### Clean sections from EEG edf files.
+Selecting clean sections allows us to avoid obvious artefacts. Artefact correction is a "fine tuning" of this. Use CSV of edfs: format: FileLocation, start of clean section, end of clean section
+This is loaded by HEP-Params, and the edf is loaded as a raw object, which is trimmed to the clean section. All clean sections from a given edf are concatenated. These are then exported as a new EDF with a suffix "K" (for klean).
+
+### Artefact correction
+Method one: ICA Fully automated. Run once, but then two reconstructions are performed, with and without CFA. (These are saved as two separate .fifs)
+Method two: ASR This is done automatically and runs unsupervised. This is written parametrically, so along with other HEP computation variables the threshold can be pulled from a config csv.
+
+### Epoch derivation
+First, R waves are identified in the "EKG1" lead. Then, epochs are created - the epochs are saved as an "-epo.fif" file. The filename also contains details about the epoch processing:
+
+* ICA vs ASR
+* if ASR then what threshold
+* if ICA then whether or not CFA is removed
+* Minimum RR interval
+* Maximum amplitude in an epoch
