@@ -20,7 +20,9 @@ Please note that the path for each file needs to be replaced with the appropriat
 Default values (lists of different values can be entered into the functions as parameters in lists)
 Variables that can be modified, by function:
     1. BulkSortEEGs: ASRThresholds (default 20)
+    
     2. BatchEpochGeneration: maxEpochAmps (default 100), MinRRs (default 0.88)
+    
     3. BatchHEPComputation:  baseStarts=[-0.5], baseEnds=[-0.1], windowStarts=[0.455], windowEnds=[0.595]
 
 # Workflow
