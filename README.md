@@ -19,6 +19,7 @@ Please note that the path for each file needs to be replaced with the appropriat
 
 Default values (lists of different values can be entered into the functions as parameters in lists)
 Variables that can be modified, by function:
+
     1. BulkSortEEGs: ASRThresholds (default 20)
     
     2. BatchEpochGeneration: maxEpochAmps (default 100), MinRRs (default 0.88)
