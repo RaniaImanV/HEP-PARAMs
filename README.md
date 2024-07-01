@@ -41,3 +41,17 @@ First, R waves are identified in the "EKG1" lead. Then, epochs are created - the
 * if ICA then whether or not CFA is removed
 * Minimum RR interval
 * Maximum amplitude in an epoch
+
+### HEP computation
+The epoch object is then processed to generate the HEP values, and an "Evoked" object is saved. Again the filename will contain details about the processing. Here there are two modes:
+
+All permutations
+
+iterateFromConfigs()
+
+Every combination of variables for The HEP computation returns a csv containing all the data, including repeats of the same parameters with the randomised K-folding applied.
+Use modal values for all but one variable
+
+IterateFromModalValues()
+
+USing provided modal values (or whatever means chosen to select the "usual" value for each variable), and a list of values, it will iterate changing only one variable at a time. This assumes that the chosen modal values are sensible.
